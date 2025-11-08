@@ -46,6 +46,7 @@ namespace CommandsEditor.DockPanels
             this.createFlowgraph = new System.Windows.Forms.ToolStripButton();
             this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.vS2015BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme();
+            this.vS2015DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeSelected = new System.Windows.Forms.ToolStripMenuItem();
@@ -211,7 +212,7 @@ namespace CommandsEditor.DockPanels
             this.dockPanel.ShowAutoHideContentOnHover = false;
             this.dockPanel.Size = new System.Drawing.Size(1615, 773);
             this.dockPanel.TabIndex = 178;
-            this.dockPanel.Theme = this.vS2015BlueTheme1;
+            this.dockPanel.Theme = this.vS2015DarkTheme1;
             // 
             // imageList
             // 
@@ -317,6 +318,7 @@ namespace CommandsEditor.DockPanels
         private System.Windows.Forms.ToolStripButton deleteComposite;
         private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel;
         private WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme vS2015BlueTheme1;
+        private WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme vS2015DarkTheme1;
         private System.Windows.Forms.ToolStripButton deleteCheckedEntities;
         private System.Windows.Forms.ToolStripButton exportComposite;
         private System.Windows.Forms.ImageList imageList;

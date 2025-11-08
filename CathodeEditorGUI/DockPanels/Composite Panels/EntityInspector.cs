@@ -49,6 +49,11 @@ namespace CommandsEditor.DockPanels
             this.FormClosed += EntityDisplay_FormClosed;
 
             InitializeComponent();
+            DockPanelsSettings.ApplyTheme(
+                this,
+                toolStrips: new[] { toolStrip1 },
+                contextMenus: new[] { contextMenuStrip1, contextMenuStrip2 }
+            );
 
             Singleton.OnEntityAddPending += OnEntityAddPending;
             Singleton.OnEntityAdded += OnEntityAdded;
@@ -564,6 +569,7 @@ namespace CommandsEditor.DockPanels
 
             entity_params.SuspendLayout();
             entity_params.Controls.AddRange(controls.ToArray());
+            DockPanelsSettings.ApplyTheme(entity_params); // apply theme to parameters
             entity_params.ResumeLayout();
 
 #if DO_ENTITY_PERF_CHECK

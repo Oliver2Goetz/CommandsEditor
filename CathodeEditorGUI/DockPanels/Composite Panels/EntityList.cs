@@ -29,6 +29,8 @@ namespace CommandsEditor.DockPanels
         public EntityList()
         {
             InitializeComponent();
+            DockPanelsSettings.ApplyTheme(this);
+            DockPanelsSettings.ApplyTheme(compositeEntityList1);
 
             compositeEntityList1.ContextMenuStrip = EntityListContextMenu;
 

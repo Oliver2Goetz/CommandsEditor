@@ -64,6 +64,11 @@ namespace CommandsEditor.DockPanels
             _commandsDisplay = commandsDisplay;
 
             InitializeComponent();
+            DockPanelsSettings.ApplyTheme(
+                this,
+                toolStrips: new[] { this.toolStrip1 },
+                contextMenus: new[] { this.contextMenuStrip1 }
+            );
 
             dockPanel.ShowDocumentIcon = true;
 
@@ -224,7 +229,7 @@ namespace CommandsEditor.DockPanels
             entityListIcons.Images.Clear();
             entityListIcons.Dispose();
 
-            vS2015BlueTheme1.Dispose();
+            vS2015DarkTheme1.Dispose();
         }
 
         private void Reload(Composite composite)
