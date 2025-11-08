@@ -1,6 +1,7 @@
 ﻿using CATHODE.Scripting;
 using CATHODE.Scripting.Internal;
 using CathodeLib;
+using CommandsEditor.DockPanels;
 using CommandsEditor.UserControls;
 using ListViewGroupCollapse;
 using OpenCAGE;
@@ -53,6 +54,8 @@ namespace CommandsEditor.Popups.UserControls
         public CompositeEntityList()
         {
             InitializeComponent();
+            AddTheme();
+
             ClearSearch();
 
             clearSearchBtn.BringToFront();
@@ -245,6 +248,7 @@ namespace CommandsEditor.Popups.UserControls
                     break;
             }
 
+            StyleItem(item, selected: false);
             composite_content.Items.Add(item);
         }
 
@@ -275,6 +279,10 @@ namespace CommandsEditor.Popups.UserControls
             );
             for (int i = 0; i < ents.Count; i++)
                 AddNewEntity(ents[i], true);
+
+            foreach (ListViewItem it in composite_content.Items) { 
+                StyleItem(it, it.Selected);
+            }
 
             //composite_content.SetGroupState(ListViewGroupState.Collapsible);
             composite_content.EndUpdate();
@@ -357,6 +365,29 @@ namespace CommandsEditor.Popups.UserControls
             if (_displayOptions.DisplayVariables)
                 entities.AddRange(_composite.variables);
             return entities;
+        }
+
+        private void AddTheme() {
+            composite_content.FullRowSelect = true;
+            composite_content.HideSelection = false;
+
+            // update colors on selection changes
+            composite_content.ItemSelectionChanged += (s, e) => {
+                StyleItem(e.Item, e.IsSelected);
+            };
+        }
+
+        private void StyleItem(ListViewItem it, bool selected) {
+            var bg = selected ? Color.White : DockPanelsSettings.BACKGROUND_COLOR;
+            var fg = selected ? Color.Black : DockPanelsSettings.FOREGROUND_COLOR;
+
+            it.UseItemStyleForSubItems = true;
+            it.BackColor = bg;
+            it.ForeColor = fg;
+            foreach (ListViewItem.ListViewSubItem si in it.SubItems) {
+                si.BackColor = bg;
+                si.ForeColor = fg;
+            }
         }
 
         public class DisplayOptions

@@ -50,6 +50,10 @@ namespace CommandsEditor.DockPanels
         public CommandsDisplay(string levelName)
         {
             InitializeComponent();
+            DockPanelsSettings.ApplyTheme(
+                this,
+                toolStrips: new[] { this.toolStrip1 }
+            );
 
             //this.Text = levelName;
             this.FormClosed += CommandsDisplay_FormClosed;
@@ -63,6 +67,7 @@ namespace CommandsEditor.DockPanels
 #endif
 
             Singleton.OnCompositeRenamed += OnCompositeRenamed;
+            ThemeWatcher.Start();
         }
 
         private void OnCompositeRenamed(Composite composite, string name)
