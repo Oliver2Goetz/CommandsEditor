@@ -450,7 +450,7 @@ namespace CommandsEditor.DockPanels
 #if DEBUG
             _entityDisplay.PopulateUI(entity, true); //NOTE: always showing links in debug view to make validating things easier
 #else
-            _entityDisplay.PopulateUI(entity, !SupportsFlowgraphs);
+            _entityDisplay.PopulateUI(entity, /*!SupportsFlowgraphs*/true); // Force to always show old Link UI elements
 #endif
 
             _entityList.List.FocusOnList();
