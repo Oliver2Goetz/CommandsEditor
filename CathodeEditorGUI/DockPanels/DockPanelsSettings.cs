@@ -115,54 +115,13 @@ namespace CommandsEditor.DockPanels {
         private static void ApplyButton(Button b) {
             b.UseVisualStyleBackColor = false;
             b.FlatStyle = FlatStyle.Flat;
-            b.FlatAppearance.BorderSize = 0;
-            b.TabStop = false;
-
             b.BackColor = BACKGROUND_COLOR;
             b.ForeColor = FOREGROUND_COLOR;
 
-            // custom paint the button
-            b.Paint += (s, e) => {
-                var btn = (Button)s;
-                var g = e.Graphics;
-
-                Color backColor, borderColor, textColor;
-                if (!btn.Enabled) {
-                    backColor = Color.FromArgb(50, 50, 50);
-                    borderColor = Color.FromArgb(70, 70, 70);
-                    textColor = Color.FromArgb(120, 120, 120);
-                } else if (btn.ClientRectangle.Contains(btn.PointToClient(Cursor.Position)) && btn.Capture) {
-                    backColor = Color.FromArgb(65, 65, 65);
-                    borderColor = Color.FromArgb(200, 200, 200);
-                    textColor = FOREGROUND_COLOR;
-                } else if (btn.ClientRectangle.Contains(btn.PointToClient(Cursor.Position))) {
-                    backColor = Color.FromArgb(45, 45, 45);
-                    borderColor = Color.FromArgb(220, 220, 220);
-                    textColor = FOREGROUND_COLOR;
-                } else {
-                    backColor = BACKGROUND_COLOR;
-                    borderColor = Color.FromArgb(200, 200, 200);
-                    textColor = FOREGROUND_COLOR;
-                }
-
-                using (var backBrush = new SolidBrush(backColor))
-                using (var borderPen = new Pen(borderColor)) {
-                    g.FillRectangle(backBrush, btn.ClientRectangle);
-                    g.DrawRectangle(borderPen,
-                        0, 0,
-                        btn.ClientRectangle.Width - 1,
-                        btn.ClientRectangle.Height - 1);
-                }
-
-                TextRenderer.DrawText(
-                    g,
-                    btn.Text,
-                    btn.Font,
-                    btn.ClientRectangle,
-                    textColor,
-                    TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-                );
-            };
+            b.FlatAppearance.BorderSize = 1;
+            b.FlatAppearance.BorderColor = Color.FromArgb(200,200,200);
+            b.FlatAppearance.MouseOverBackColor = Color.FromArgb(45,45,45);
+            b.FlatAppearance.MouseDownBackColor = Color.FromArgb(65,65,65);
         }
 
         private static void ApplyToolStrip(ToolStrip ts) {
