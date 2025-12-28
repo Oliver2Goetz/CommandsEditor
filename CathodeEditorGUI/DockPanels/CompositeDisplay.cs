@@ -741,6 +741,20 @@ namespace CommandsEditor.DockPanels
             ReloadAllEntities();
         }
 
+        private void duplicateCheckedEntities_Click(object sender, EventArgs e) {
+            List<Entity> entities = _entityList.List.CheckedEntities;
+
+            if (entities.Count == 0) return;
+            
+            if (MessageBox.Show("Are you sure you want to duplicate the selected entities?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            foreach (Entity entity in entities)
+                AddCopyOfEntity(entity);
+
+            _entityList.List.LoadComposite(Composite);
+            ReloadAllEntities();
+        }
+
         private void exportComposite_Click(object sender, EventArgs e)
         {
             ExportComposite dialog = new ExportComposite(Composite, _canExportChildren);

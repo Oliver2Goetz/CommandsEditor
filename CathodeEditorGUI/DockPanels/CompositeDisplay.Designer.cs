@@ -45,14 +45,15 @@ namespace CommandsEditor.DockPanels
             this.deleteComposite = new System.Windows.Forms.ToolStripButton();
             this.createFlowgraph = new System.Windows.Forms.ToolStripButton();
             this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.vS2015BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme();
             this.vS2015DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme();
+            this.vS2015BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeSelected = new System.Windows.Forms.ToolStripMenuItem();
             this.goBackOnPath = new System.Windows.Forms.Button();
             this.pathDisplay = new System.Windows.Forms.TextBox();
             this.instanceInfo = new System.Windows.Forms.Button();
+            this.duplicateCheckedEntities = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +74,7 @@ namespace CommandsEditor.DockPanels
             this.createEntity,
             this.exportComposite,
             this.findUses,
+            this.duplicateCheckedEntities,
             this.deleteCheckedEntities,
             this.renameComposite,
             this.deleteComposite,
@@ -205,7 +207,7 @@ namespace CommandsEditor.DockPanels
             this.dockPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dockPanel.DockBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
+            this.dockPanel.DockBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.dockPanel.Location = new System.Drawing.Point(0, 25);
             this.dockPanel.Name = "dockPanel";
             this.dockPanel.Padding = new System.Windows.Forms.Padding(6);
@@ -240,13 +242,13 @@ namespace CommandsEditor.DockPanels
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeSelected});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 26);
             // 
             // closeSelected
             // 
             this.closeSelected.Image = ((System.Drawing.Image)(resources.GetObject("closeSelected.Image")));
             this.closeSelected.Name = "closeSelected";
-            this.closeSelected.Size = new System.Drawing.Size(180, 22);
+            this.closeSelected.Size = new System.Drawing.Size(164, 22);
             this.closeSelected.Text = "Close Composite";
             this.closeSelected.Click += new System.EventHandler(this.closeSelected_Click);
             // 
@@ -286,6 +288,14 @@ namespace CommandsEditor.DockPanels
             this.instanceInfo.Text = "Composite Instance Info";
             this.instanceInfo.UseVisualStyleBackColor = true;
             this.instanceInfo.Click += new System.EventHandler(this.instanceInfo_Click);
+            // 
+            // duplicateCheckedEntities
+            // 
+            this.duplicateCheckedEntities.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.duplicateCheckedEntities.Name = "duplicateCheckedEntities";
+            this.duplicateCheckedEntities.Size = new System.Drawing.Size(151, 22);
+            this.duplicateCheckedEntities.Text = "Duplicate Checked Entities";
+            this.duplicateCheckedEntities.Click += new System.EventHandler(this.duplicateCheckedEntities_Click);
             // 
             // CompositeDisplay
             // 
@@ -336,5 +346,6 @@ namespace CommandsEditor.DockPanels
         private System.Windows.Forms.Button instanceInfo;
         private System.Windows.Forms.ToolStripButton renameComposite;
         private System.Windows.Forms.ToolStripButton createFlowgraph;
+        private System.Windows.Forms.ToolStripButton duplicateCheckedEntities;
     }
 }
